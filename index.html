@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoCut Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo">AUTO<span>CUT</span></div>
+  <p>Turn long videos into short videos.</p>
+</header>
+
+<main>
+  <section class="panel">
+    <h1>Your video. Shortened.</h1>
+    <p class="muted">Upload a video and let AutoCut do the cutting.</p>
+
+    <label class="upload" for="videoInput">
+      <span class="upload-icon">＋</span>
+      <strong>Select your video</strong>
+      <small>Choose an MP4 video from your device</small>
+    </label>
+    <input type="file" id="videoInput" accept="video/mp4,video/*" hidden>
+
+    <div id="fileInfo" class="file-info">No video selected</div>
+
+    <video id="sourcePreview" controls hidden></video>
+
+    <div class="settings">
+      <label for="clipLength">Length of each Short</label>
+      <select id="clipLength">
+        <option value="30">30 seconds</option>
+        <option value="45">45 seconds</option>
+        <option value="60" selected>60 seconds</option>
+      </select>
+    </div>
+
+    <div class="settings">
+      <label for="format">Video format</label>
+      <select id="format">
+        <option value="vertical" selected>Vertical 9:16 (YouTube Shorts)</option>
+        <option value="original">Keep original shape</option>
+      </select>
+    </div>
+
+    <button id="startBtn">START AUTOCUT</button>
+
+    <div class="progress-area">
+      <div class="progress-track">
+        <div id="progressBar"></div>
+      </div>
+      <p id="status">Ready when you are.</p>
+    </div>
+  </section>
+
+  <section class="results">
+    <h2>Your finished Shorts</h2>
+    <p class="muted">Your exported clips will appear here.</p>
+    <div id="clips"></div>
+  </section>
+</main>
+
+<footer>
+  <p>AutoCut Studio · Create more. Edit less.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
